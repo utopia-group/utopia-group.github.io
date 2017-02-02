@@ -144,8 +144,8 @@ function appendWayPoint(name, latLng){
     removeWaypoint({latLng:planned.getPath().b[labels.indexOf(e.path[0].innerHTML)]});
   });
 
-  lat.innerHTML = latLng.lat().toFixed(5);
-  lng.innerHTML = latLng.lng().toFixed(5);
+  lat.innerHTML = latLng.lat();
+  lng.innerHTML = latLng.lng();
 }
 
 function resetRequest() {
