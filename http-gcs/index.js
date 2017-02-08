@@ -10,7 +10,8 @@
 //POST plannedPath with list of waypoints
 //POST goHome
 
-var urlBase = "http://utexas.edu/";
+//var urlBase = "http://127.0.0.1:8080?";
+var urlBase = "http://128.83.122.134:9093?";
 
 var map;
 var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789';
@@ -20,10 +21,11 @@ var markers = [];
 var currImageId = 0;
 var home;
 
+var drone;
 
 function initMap() {
   //starting location set up
-  home = new google.maps.LatLng({lat: 30.286403, lng: -97.736671});//gdc
+  home = new google.maps.LatLng({lat: 30.286228194373923, lng: -97.73653484880924});//gdc
   
   //map and listener setup
   map = new google.maps.Map(document.getElementById('map'), {
@@ -65,7 +67,13 @@ function initMap() {
   //the values 1 and 0 are constant in that line of code
 
   //inital location set up
-  setWayPoint({latLng:home})
+  setWayPoint({latLng:home});
+
+  drone = new google.maps.Marker({
+    position: home,
+    label: '🐦',
+    map: map
+  });
 }
 
 function setWayPoint(e) {
@@ -125,6 +133,12 @@ function removeWaypoint(e) {
   if(planned.getPath().length > 1 && google.maps.geometry){
     document.getElementById("totalDistance").innerText = google.maps.geometry.spherical.computeLength(planned.latLngs.b[0].b).toFixed(1) + " meters"
   }
+  // console.log(e.latLng.lat());
+  removeEndPoint = "delwaypoint=%28" + e.latLng.lat() + "%2C" + e.latLng.lng() + "%29";
+  $.delete(urlBase+removeEndPoint, function(response){
+    $("#drone-response").prepend("<br>" + response);
+    console.log(response);
+  });
 }
 
 function appendWayPoint(name, latLng){
@@ -146,29 +160,53 @@ function appendWayPoint(name, latLng){
 
   lat.innerHTML = latLng.lat();
   lng.innerHTML = latLng.lng();
-}
 
-function resetRequest() {
-  $.post(urlBase + "reset-drone", {command: "stop"}, function() {
-    console.log("Successfully reset");    
-  });
-}
-
-function goHome() {
-  $.post(urlBase + "go-home", {command: "stop"}, function() { //includ home location in post request
-    console.log("Successfully reset");    
-  });
-}
-
-function sendWaypoints() {
-  var res = [];
-  for (var i = planned.latLngs.b[0].b.length - 1; i >= 0; i--) {
-    res.push({lat: planned.latLngs.b[0].b[i].lat(), lng: planned.latLngs.b[0].b[i].lat()});
+  // sendPost('waypoint', latLng.toString());
+  // $("#drone-response").prepend("posted" + "<br>");
+  if(planned.getPath().length > 2){
+  $.post(urlBase+"waypoint="+latLng.toString(), function(response){
+      $("#drone-response").prepend("<br>" + response);
+      console.log(response);
+    }, "text");
   }
-  $.post(urlBase + "send-waypoints", {waypoints: res}, function() {
-    console.log("Successfully transmitted planned path");
-  })
 }
+
+function sendGet(endpoint){
+  console.log(urlBase + "cmd=" + endpoint);
+  $.get(urlBase + "cmd=" + endpoint, function(response){
+    $("#drone-response").prepend("<br>" + response);
+  });
+  // $("#drone-response").prepend(endpoint + "<br>");
+}
+
+function resetPage(){
+  $.get(urlBase + "cmd=reset", function(response){
+    $("#drone-response").prepend("<br>" + response);
+    location.reload();
+  });
+}
+
+// function resetRequest() {
+//   $.post(urlBase + "reset-drone", {command: "stop"}, function() {
+//     console.log("Successfully reset");    
+//   });
+// }
+
+// function goHome() {
+//   $.post(urlBase + "go-home", {command: "stop"}, function() { //includ home location in post request
+//     console.log("Successfully reset");    
+//   });
+// }
+
+// function sendWaypoints() {
+//   var res = [];
+//   for (var i = planned.latLngs.b[0].b.length - 1; i >= 0; i--) {
+//     res.push({lat: planned.latLngs.b[0].b[i].lat(), lng: planned.latLngs.b[0].b[i].lat()});
+//   }
+//   $.post(urlBase + "send-waypoints", {waypoints: res}, function() {
+//     console.log("Successfully transmitted planned path");
+//   })
+// }
 
 var rad = function(x) {
   return x * Math.PI / 180;
@@ -186,38 +224,61 @@ var getDistance = function(p1, p2) {
   return d; // returns the distance in meter
 };
 
-function addImage(imgSrc){
-  // currImageId += 1;
-  // addImage("http://dribbble.s3.amazonaws.com/users/322/screenshots/872485/coldchase.jpg");
-  // currImageId += 1;
-  // addImage("http://dribbble.s3.amazonaws.com/users/322/screenshots/599584/home.jpg");
+// function addImage(imgSrc){
+//   // currImageId += 1;
+//   // addImage("http://dribbble.s3.amazonaws.com/users/322/screenshots/872485/coldchase.jpg");
+//   // currImageId += 1;
+//   // addImage("http://dribbble.s3.amazonaws.com/users/322/screenshots/599584/home.jpg");
 
-  var slider = document.getElementById("slider");
-  newChild = `<li>
-                  <input type="radio" id="slide${currImageId}" name="slide" checked>
-                  <label for="slide${currImageId}"></label>
-                  <img src="${imgSrc}">
-              </li>`;
-  slider.innerHTML += newChild;
-}
+//   var slider = document.getElementById("slider");
+//   newChild = `<li>
+//                   <input type="radio" id="slide${currImageId}" name="slide" checked>
+//                   <label for="slide${currImageId}"></label>
+//                   <img src="${imgSrc}">
+//               </li>`;
+//   slider.innerHTML += newChild;
+// }
 
-function getImage() {
-  $.get(urlBase + 'currentImage', function (response) {
-    console.log(response.image); //I don't know the format of the image
-    if(response.image.id > currImageId){//has new image
-      currImageId += 1;
-      addImage(response.image.src);
-    }
-  });
-}
+// function getImage() {
+//   $.get(urlBase + 'currentImage', function (response) {
+//     console.log(response.image); //I don't know the format of the image
+//     if(response.image.id > currImageId){//has new image
+//       currImageId += 1;
+//       addImage(response.image.src);
+//     }
+//   });
+// }
 
 (function pollLocation() {
-  $.get(urlBase + 'currentLocation', function (response) {
-    console.log(response.location.lat, response.location.lng);
-    if(withinBounds(response.location.lat, response.location.lng)){ //haven't written withinBounds
-      getImage();
-      completed.getPath().push(planned.getPath().b[1]); planned.getPath().removeAt(0);
-    }
-    setTimeout(poll, 1000);
+  $.get(urlBase + 'cmd=gps', function (response) {
+    response = response.split('(');
+    response = response[response.length-1];
+    response = response.split(')').join('');
+    response = response.split(',');
+    console.log("lat:", response[0]);
+    console.log("lon:", response[1]);
+    drone.setPosition(new google.maps.LatLng(response[0],response[1]));
+    // if(withinBounds(response.location.lat, response.location.lng)){ //haven't written withinBounds
+    //   getImage();
+    //   completed.getPath().push(planned.getPath().b[1]); planned.getPath().removeAt(0);
+    // }
+    setTimeout(pollLocation, 1000);
   });
 }());
+
+$.delete = function(url, data, callback, type){
+ 
+  if ( $.isFunction(data) ){
+    type = type || callback,
+        callback = data,
+        data = {}
+  }
+ 
+  return $.ajax({
+    url: url,
+    type: 'DELETE',
+    success: callback,
+    data: data,
+    contentType: type
+  });
+}

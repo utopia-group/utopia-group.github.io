@@ -22,12 +22,10 @@
           <div class="buttons">
             <h1>Controls</h1>
 
-            <button id="send-waypoints" onclick="sendWaypoints()">Send Waypoints</button>
-
-            <button id="go-home" onclick="goHome()">Go Home</button>
-            
-            <!-- post request to clean everything, stop simulator, etc. -->
-            <button id="reset-request" onclick="resetRequest()">Reset</button>
+            <button id="reset-button" onclick="resetPage()">Reset</button>
+            <button id="arm-button" onclick="sendGet('arm')">Arm</button>
+            <button id="launch-button" onclick="sendGet('launch')">Launch</button>
+            <button id="land-button" onclick="sendGet('land')">Land</button>
           </div>
             <div class="path-info">
             <h1>Waypoints</h1>
@@ -41,10 +39,11 @@
           </div>
         </div> 
         <div class="drone-view">
-          <h1>Views</h1>
+          <h1>Output</h1>
+          <p id="drone-response"></p>
           <!-- All thanks to http://codepen.io/joshnh/pen/KwilB -->
-          <ul id="slider" class="slider">
-          </ul>
+          <!-- <ul id="slider" class="slider">
+          </ul> -->
         </div>
       </div>
   </div>
