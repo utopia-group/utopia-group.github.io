@@ -23,9 +23,9 @@
             <h1>Controls</h1>
 
             <button id="reset-button" onclick="resetPage(); getStatus();">Reset</button>
-            <button id="arm-button" onclick="sendGet('arm'); getStatus();">Arm</button>
-            <button id="launch-button" onclick="launch(); getStatus();">Launch</button>
-            <button id="land-button" onclick="land(); getStatus();">Land</button>
+            <button id="arm-button" onclick="sendGet('arm'); getStatus(); document.getElementById('arm-button').disabled = true; document.getElementById('launch-button').disabled = false;">Arm</button>
+            <button id="launch-button" onclick="launch(); getStatus(); document.getElementById('launch-button').disabled = true; document.getElementById('land-button').disabled = false;" disabled>Launch</button>
+            <button id="land-button" onclick="land(); getStatus(); document.getElementById('land-button').disabled = true" disabled>Land</button>
           </div>
             <div class="path-info">
             <h1>Waypoints</h1>
@@ -35,7 +35,7 @@
               </tr>
             </table>
             <h2 id="totalDistance">0 meters</h2> 
-            <h2 id="status">Status: Home</h2> 
+            <h2 id="status">Status: Landed</h2> 
           </div>
         </div> 
         <div class="drone-view">
