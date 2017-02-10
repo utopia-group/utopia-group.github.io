@@ -22,6 +22,7 @@ var currImageId = 0;
 var home;
 
 var drone;
+var pollingTimeout;
 
 function initMap() {
   //starting location set up
@@ -138,6 +139,7 @@ function removeWaypoint(e) {
   $.delete(urlBase+removeEndPoint, function(response){
     $("#drone-response").prepend("<br>" + response);
     console.log(response);
+    // getStatus();
   });
 }
 
@@ -167,6 +169,7 @@ function appendWayPoint(name, latLng){
   $.post(urlBase+"waypoint="+latLng.toString(), function(response){
       $("#drone-response").prepend("<br>" + response);
       console.log(response);
+      // getStatus();
     }, "text");
   }
 }
@@ -183,6 +186,7 @@ function resetPage(){
   $.get(urlBase + "cmd=reset", function(response){
     $("#drone-response").prepend("<br>" + response);
     location.reload();
+    // getStatus();
   });
 }
 
@@ -249,7 +253,23 @@ var getDistance = function(p1, p2) {
 //   });
 // }
 
-(function pollLocation() {
+function getStatus(){
+  $.get(urlBase + 'cmd=status', function(response){
+    document.getElementById("status").innerText = "Status: " + response.split("Body=")[1];
+  })
+}
+
+function launch(){
+  sendGet('launch');
+  pollingTimeout = setTimeout(pollLocation, 1000);
+}
+
+function land(){
+  sendGet('land');
+  clearTimeout(pollingTimeout);
+}
+
+function pollLocation() {
   $.get(urlBase + 'cmd=gps', function (response) {
     response = response.split('(');
     response = response[response.length-1];
@@ -262,9 +282,9 @@ var getDistance = function(p1, p2) {
     //   getImage();
     //   completed.getPath().push(planned.getPath().b[1]); planned.getPath().removeAt(0);
     // }
-    setTimeout(pollLocation, 1000);
+    pollingTimeout = setTimeout(pollLocation, 1000);
   });
-}());
+}
 
 $.delete = function(url, data, callback, type){
  
