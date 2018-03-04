@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>SyPet</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles-4.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head> 
+
+<body data-spy="scroll">
+    
+    <!---//Facebook button code-->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
+    <!-- ******HEADER****** --> 
+    <header id="header" class="header">  
+        <div class="container">            
+            <h1 class="logo pull-left">
+                <a class="scrollto" href="#promo">
+                    <span class="logo-title">SyPet</span>
+                </a>
+            </h1><!--//logo-->              
+            <nav id="main-nav" class="main-nav navbar-right" role="navigation">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button><!--//nav-toggle-->
+                </div><!--//navbar-header-->            
+                <div class="navbar-collapse collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active nav-item sr-only"><a class="scrollto" href="#promo">Home</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#about">About</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#demo">Demo</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#usage">Usage</a></li>
+<!--                         <li class="nav-item"><a class="scrollto" href="#statistics">Statistics</a></li> -->
+                        <li class="nav-item last"><a class="scrollto" href="#contact">Contact</a></li>
+                    </ul><!--//nav-->
+                </div><!--//navabr-collapse-->
+            </nav><!--//main-nav-->
+        </div>
+    </header><!--//header-->
+    
+    <!-- ******PROMO****** -->
+    <section id="promo" class="promo section offset-header">
+        <div class="container text-center">
+            <h2 class="title">Sy<span class="highlight">Pet</span></h2>
+            <p class="intro">Program synthesis tool for Java libraries that automatically constructs programs by composing APIs.</p>
+            <!-- <div class="btns">
+                <a class="btn btn-cta-secondary" href="http://themes.3rdwavemedia.com/" target="_blank">Demo</a>
+                <a class="btn btn-cta-primary" href="http://themes.3rdwavemedia.com/website-templates/devaid-free-bootstrap-theme-developers/" target="_blank">Download</a>
+            </div> -->
+        </div>
+    </section><!--//promo-->
+    
+    <!-- ******ABOUT****** --> 
+    <section id="about" class="about section">
+        <div class="container">
+            <h2 class="title text-center">What is SyPet?</h2>
+            <p class="intro text-center,align=justify">Are you tired of spending countless hours learning how to use existing Java libraries? Wouldn't it be nice if this process could be automated? SyPet is a program synthesis tool that helps programmers to use Java libraries. The programmer provides SyPet: (1) a signature of the method to be synthesized, (2) a set of test cases, and (3) a set of Java libraries. SyPet will automatically find a sequence of API calls from these Java libraries that will pass all test cases provided by the programmer. Stop wasting precious time and start using SyPet today!</p>
+            <div class="row,align=center">
+                <div class="item col-md-12 col-sm-12 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-line-chart"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Scalable</h3>
+                        <p>SyPet can handle libraries with thousands of APIs.</p>
+                    </div><!--//content-->
+                </div><!--//item-->
+            </div>
+            <div class="row,align=center">
+                <div class="item col-md-12 col-sm-12 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-clock-o"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Fast</h3>
+                        <p>SyPet can synthesize most tasks in a few seconds.</p>
+                    </div><!--//content-->
+                </div><!--//item-->
+            </div>
+            <div class="row,align=center">
+                <div class="item col-md-12 col-sm-12 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Generic</h3>
+                        <p>SyPet can solve problems from different domains and supports arbitrary Java libraries.</p>
+                    </div><!--//content-->
+                </div><!--//item-->
+            </div>
+            <div class="row,align=center">
+                <div class="item col-md-12 col-sm-12 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-archive"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Paper</h3>
+                        <p>For technical details see our POPL'17 publication: <b><a href="assets/files/sypet-popl17.pdf">Component-Based Synthesis for Complex APIs.</a></b> Yu Feng, Ruben Martins, Yuepeng Wang, Isil Dillig, Thomas W. Reps.
+                    </div><!--//content-->
+                </div><!--//item-->
+            </div>      
+        </div><!--//container-->
+    </section><!--//about-->
+
+    <!-- ******FEATURES****** --> 
+    <section id="demo" class="features section">
+        <div class="container text-center">
+            <h2 class="title">Demo</h2>
+            <div align="center" class="embed-responsive embed-responsive-16by9">
+            <video show controls class="embed-responsive-item">
+            <source src="assets/files/sypet-demo.m4v" type="video/mp4">
+        </video>
+        </div>
+        </div><!--//container-->
+    </section><!--//features-->
+    
+    <!-- ******FEATURES****** --> 
+<!--     <section id="features" class="features section">
+        <div class="container text-center">
+            <h2 class="title">Features</h2>
+            <ul class="feature-list list-unstyled">
+                <li><i class="fa fa-check"></i> Fully responsive</li>
+                <li><i class="fa fa-check"></i> HTML5 + CSS3</li>
+                <li><i class="fa fa-check"></i> Built on <a href="http://getbootstrap.com/" target="_blank">Bootstrap 3.3</a></li>
+                <li><i class="fa fa-check"></i> 400+ FontAwesome icons</li>
+                <li><i class="fa fa-check"></i> 4 colour schemes</li>
+                <li><i class="fa fa-check"></i> LESS files included</li>
+                <li><i class="fa fa-check"></i> Compatible with all modern browsers</li>
+            </ul>
+        </div>
+    </section> -->
+    
+    <!-- ******DOCS****** --> 
+    <section id="usage" class="docs section">
+        <div class="container">
+            <div class="docs-inner">
+            <h2 class="title text-center">Usage</h2>      
+            <div class="block">
+                <h3 class="sub-title text-center">Requirements</h3>
+                <ul class="feature-list list-unstyled">
+                <li><i class="fa fa-check"></i>Unix-like system (OS X or Linux)</li>
+                <li><i class="fa fa-check"></i>Java 7 or higher</li>
+                <li><i class="fa fa-check"></i>Apache Ant</li>
+            </ul>
+
+            <div class="block">
+                <h3 class="sub-title text-center">Installation</h3>
+                <p>Clone the source code of SyPet from the GitHub repository at the UToPiA research group:</p>
+                <div class="code-block">
+                    <!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->
+                    <pre>
+                    <code class="language-javascript">
+$ git clone https://github.com/utopia-group/sypet.git    
+                     </code></pre>
+                </div><!--//code-block-->
+            <p>Compile SyPet with Apache Ant:</p>
+            <div class="code-block">
+                    <!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->
+                    <pre>
+                    <code class="language-javascript">
+$ ant
+                     </code></pre>
+                </div><!--//code-block-->
+            </div><!--//block-->
+
+            <div class="block">
+                <h3 class="sub-title text-center">Configuration Json file</h3>
+                <p>To run SyPet the user must provide a Json file with the configuration of the tool and the information of the benchmark. The Json file contains the following parameters:</p>
+                <ul class="feature-list list-unstyled">
+                <li><i class="fa fa-check"></i><b>Id</b>: an integer id for the benchmark.</li>
+                <li><i class="fa fa-check"></i><b>methodName</b>: the method name for the synthesized function.</li>
+                <li><i class="fa fa-check"></i><b>paramNames</b>: names for the arguments of the synthesized function.</li>
+                <li><i class="fa fa-check"></i><b>srcTypes</b>: the full quantified Java type of each <em>paramNames</em>.</li>
+                <li><i class="fa fa-check"></i><b>tgtType</b>: the full quantified Java type of the goal.</li>
+                <li><i class="fa fa-check"></i><b>packages</b>: which packages should be used to search for the APIs that will transform <em>srcTypes</em> into <em>tgtType</em>. The user can specify any granularity of the package. A more specific granularity will lead to a smaller search space and better performance for SyPet.</li>
+                <li><i class="fa fa-check"></i><b>Libs</b>: the location of the Java libraries that contain the described <em>packages</em>.</li>
+                <li><i class="fa fa-check"></i><b>testPath</b>: the location of the test function.</li>
+                </ul>
+
+
+Consider a programmer, Bob, who wants to implement functionality for rotating a 2-dimensional
+geometric object. Specifically, Bob has the following signature in mind:
+
+<div class="code-block">
+                    <!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->
+                    <pre>
+                    <code class="language-javascript">
+Area rotate(Area obj, Point2D pt, double angle)
+                     </code></pre>
+                </div><!--//code-block-->
+
+
+Here, the <em>rotate</em> method should take a 2-dimensional object called <em>obj</em> and return a new object that is the same as <em>obj</em> except that it has been rotated by the specified <em>angle</em> around the specified point <em>pt</em>. The types Area and Point2D are defined in the <b>java.awt.geom</b> library. Here is an example of a Json file to run SyPet on this problem:
+                
+                <div class="code-block">
+                    <!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->
+                    <pre>
+    <code class="language-javascript">
+{
+  "id": 13,
+  "methodName": "rotate",
+  "paramNames": [
+    "sypet_arg0",
+    "sypet_arg1",
+    "sypet_arg2"
+  ],
+  "srcTypes": [
+    "java.awt.geom.Area",
+    "java.awt.geom.Point2D",
+    "double"
+  ],
+  "tgtType": "java.awt.geom.Area",
+  "packages": [
+    "java.awt.geom"
+  ],
+  "libs": [
+    "./lib/rt7.jar"
+  ],
+  "testPath": "benchmarks/geometry/13/TestSource.java"
+}
+    </code></pre>
+                </div><!--//code-block-->
+            </div><!--//block-->
+            
+            <div class="block">
+                <h3 class="sub-title text-center">Test file</h3>
+                <p>The <b>testPath</b> parameter contains the location of the test file. This file should be a Java file containing a set of test cases such that:
+                <ul class="feature-list list-unstyled">
+                <li><i class="fa fa-check"></i>The following method must exist in this Java file:</li>
+                <div class="code-block">
+                <pre>
+                <code class="language-javascript">
+public static boolean test() throws Throwable { }
+                   </code></pre>
+                </div><!--//code-block-->    
+                <li><i class="fa fa-check"></i>All types should be fully quantified.</li>
+                </ul>
+
+<p> An example of a test file for the <em>rotate</em> method can be seen here:</p>
+                <div class="code-block">
+                    <pre><code class="language-javascript">
+public static boolean test() throws Throwable {
+  return test0() && test1();
+}
+public static boolean test0() throws Throwable {
+  java.awt.geom.Area a1 = new java.awt.geom.Area(new java.awt.geom.Rectangle2D.Double(0, 0, 10, 2));
+  java.awt.geom.Area a2 = new java.awt.geom.Area(new java.awt.geom.Rectangle2D.Double(-2, 0, 2, 10));
+  java.awt.geom.Point2D p = new java.awt.geom.Point2D.Double(0, 0);
+  java.awt.geom.Area a3 = rotate(a1, p, Math.PI / 2);
+  return a2.equals(a3);
+}
+public static boolean test1() throws Throwable {
+  java.awt.geom.Area a1 = new java.awt.geom.Area(new java.awt.geom.Rectangle2D.Double(10, 20, 10, 2));
+  java.awt.geom.Area a2 = new java.awt.geom.Area(new java.awt.geom.Rectangle2D.Double(8, 20, 2, 10));
+  java.awt.geom.Point2D p = new java.awt.geom.Point2D.Double(10, 20);
+  java.awt.geom.Area a3 = rotate(a1, p, Math.PI / 2);
+  return a2.equals(a3);
+}    
+                    </code></pre>
+                </div><!--//code-block-->
+            </div><!--//block-->   
+            <div class="block">
+                <h3 class="sub-title text-center">Running SyPet</h3>
+               <p> After creating the Example.json file, the user can run SyPet with the following command line:</p>
+
+            <div class="code-block">
+                    <!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->
+                    <pre>
+                    <code class="language-javascript">
+$ ./run-sypet.sh Example.json
+                     </code></pre>
+                </div><!--//code-block-->
+
+<p>SyPet will synthesize the following code that rotates a rectangle by a given angle:</p>
+
+                <div class="code-block">
+                    <pre><code class="language-javascript">
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Area;
+import java.awt.geom.Point2D;
+
+public class Solution {
+  public static Area rotate(Area arg0, Point2D arg1, double arg2) {
+    double v1 = arg1.getX();
+    double v2 = arg1.getY();
+    AffineTransform v3 = AffineTransform.getRotateInstance(arg2, v1, v2);
+    Area v4 = arg0.createTransformedArea(v3);
+    return v4;
+  }
+}
+</code></pre>
+                </div><!--//code-block-->
+            </div><!--//block-->   
+            
+            </div><!--//docs-inner-->         
+        </div><!--//container-->
+    </section><!--//features-->
+        
+    <!-- ******CONTACT****** --> 
+    <section id="contact" class="contact section has-pattern">
+        <div class="container">
+            <div class="contact-inner">
+                <h2 class="title  text-center">Contact</h2>
+                <div class="info"> 
+                <center>
+                <p>SyPet was developed by the UToPiA research group lead by <a href="https://www.cs.utexas.edu/~isil/">Isil Dillig</a> at UT Austin.<p>
+                <p>SyPet is maintained by <a href="https://sat-group.github.io/ruben/">Ruben Martins</a> at CMU and <a href="https://www.cs.utexas.edu/~yufeng/">Yu Feng</a> at UT Austin.</p>
+                </center>
+                </div>
+                <div class="info text-center">
+                    <ul class="social-icons list-inline">
+                        <li><a href="https://github.com/utopia-group/sypet"><i class="fa fa-github"></i></a></li>   
+                        <li class="last"><a href="mailto:rubenm@cs.cmu.edu"><i class="fa fa-envelope"></i></a></li>              
+                    </ul>
+                </div>
+            </div><!--//contact-inner-->
+        </div><!--//container-->
+    </section><!--//contact-->  
+      
+    <!-- ******FOOTER****** --> 
+    <footer class="footer">
+        <div class="container text-center">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">Designed with <i class="fa fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+        </div><!--//container-->
+    </footer><!--//footer-->
+     
+    <!-- Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-1.11.3.min.js"></script>   
+    <script type="text/javascript" src="assets/plugins/jquery.easing.1.3.js"></script>   
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>     
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script> 
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/js/main.js"></script>       
+</body>
+</html> 
+
