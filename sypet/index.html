@@ -52,6 +52,7 @@
                         <li class="nav-item"><a class="scrollto" href="#about">About</a></li>
                         <li class="nav-item"><a class="scrollto" href="#demo">Demo</a></li>
                         <li class="nav-item"><a class="scrollto" href="#usage">Usage</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#architecture">Architecture</a></li>
 <!--                         <li class="nav-item"><a class="scrollto" href="#statistics">Statistics</a></li> -->
                         <li class="nav-item last"><a class="scrollto" href="#contact">Contact</a></li>
                     </ul><!--//nav-->
@@ -65,10 +66,12 @@
         <div class="container text-center">
             <h2 class="title">Sy<span class="highlight">Pet</span></h2>
             <p class="intro">Program synthesis tool for Java libraries that automatically constructs programs by composing APIs.</p>
-            <!-- <div class="btns">
-                <a class="btn btn-cta-secondary" href="http://themes.3rdwavemedia.com/" target="_blank">Demo</a>
-                <a class="btn btn-cta-primary" href="http://themes.3rdwavemedia.com/website-templates/devaid-free-bootstrap-theme-developers/" target="_blank">Download</a>
-            </div> -->
+            <div class="btns">
+                <a class="btn btn-cta-secondary" href="https://github.com/utopia-group/sypet" target="_blank">GitHub</a>
+                <a class="btn btn-cta-primary" href="assets/files/sypet-v0.1.tar.gz" target="_blank">Download</a>
+            </div>
+            <br></br>
+            <br></br>
         </div>
     </section><!--//promo-->
     
@@ -317,6 +320,48 @@ public class Solution {
             </div><!--//docs-inner-->         
         </div><!--//container-->
     </section><!--//features-->
+
+
+     <!-- ******ARCHITECTURE****** --> 
+    <section id="architecture" class="docs section">
+        <div class="container">
+            <div class="docs-inner">
+            <h2 class="title text-center">Architecture</h2>      
+            <div class="block">
+            <div align="center">
+            <img src="assets/files/architecture.png" width="90%" height="90%" alt="Architecture">
+            </div>
+
+            <div align="justify">
+            <p>
+            SyPet starts by building a compact Petri-net representation of the relationships between API
+            components from the initial set of Java libraries. In this kind of Petri-net, places (nodes)
+            correspond to types, transitions represent methods, and tokens denote the number of program
+            variables of a given type.
+            </p>
+
+            <p>
+            In our approach, a reachable path in the Petri-net model corresponds to a program sketch
+            rather than a complete executable program. In particular, to keep the underlying Petri net
+            representation compact, our algorithm deliberately decomposes the synthesis task into two
+            separate sketch-generation and sketch-completion phases. Hence, after we perform reachability
+            analysis on the Petri net, we must still complete the sketch by determining what arguments to
+            provide for each procedure. Toward this goal, our algorithm generates constraints that encode
+            various syntactic and semantic requirements on the synthesized program, and uses a SAT
+            solver to find a model. The satisfying assignment produced by the solver is then used to
+            generate a candidate implementation that can be tested. If the synthesized program fails any
+            test case, our algorithm backtracks and generates a different implementation, either by finding
+            another model of the SAT formula or by exploring a different reachable path in the Petri net. The
+            programs synthesized by our algorithm are guaranteed to type check and pass all test cases
+            provided by the user.
+            </p>
+
+            <p>
+            For further technical details we refer the interested reader to the POPL'17 paper: <b><a href="assets/files/sypet-popl17.pdf">Component-Based Synthesis for Complex APIs.</a></b> Yu Feng, Ruben Martins, Yuepeng Wang, Isil Dillig, Thomas W. Reps.
+            </p>    
+            </div>
+        </div><!--//container-->
+    </section><!--//contact-->  
         
     <!-- ******CONTACT****** --> 
     <section id="contact" class="contact section has-pattern">
@@ -338,7 +383,7 @@ public class Solution {
             </div><!--//contact-inner-->
         </div><!--//container-->
     </section><!--//contact-->  
-      
+
     <!-- ******FOOTER****** --> 
     <footer class="footer">
         <div class="container text-center">
