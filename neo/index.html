@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>Neo</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles-4.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head> 
+
+<body data-spy="scroll">
+        
+    <!-- ******HEADER****** --> 
+    <header id="header" class="header">  
+        <div class="container">            
+            <h1 class="logo pull-left">
+                <a class="scrollto" href="#promo">
+                    <span class="logo-title">Neo</span>
+                </a>
+            </h1><!--//logo-->              
+            <nav id="main-nav" class="main-nav navbar-right" role="navigation">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button><!--//nav-toggle-->
+                </div><!--//navbar-header-->            
+                <div class="navbar-collapse collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active nav-item sr-only"><a class="scrollto" href="#promo">Home</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#about">About</a></li>
+<!--                         <li class="nav-item"><a class="scrollto" href="#statistics">Statistics</a></li> -->
+                        <li class="nav-item last"><a class="scrollto" href="#contact">Contact</a></li>
+                    </ul><!--//nav-->
+                </div><!--//navabr-collapse-->
+            </nav><!--//main-nav-->
+        </div>
+    </header><!--//header-->
+    
+    <!-- ******PROMO****** -->
+    <section id="promo" class="promo section offset-header">
+        <div class="container text-center">
+            <h2 class="title">Ne<span class="highlight">o</span></h2>
+            <p class="intro">A scalable program synthesizer that can learn from past mistakes.</p>
+            <div class="btns">
+                <a class="btn btn-cta-secondary" href="#" onclick="alert('Under Construction!')">GitHub</a>
+                <a class="btn btn-cta-primary" href="#" onclick="alert('Under Construction!')">Download</a>
+            </div>
+            <br></br>
+            <br></br>
+        </div>
+    </section><!--//promo-->
+    
+    <!-- ******ABOUT****** --> 
+    <section id="about" class="about section">
+        <div class="container">
+            <h2 class="title text-center">What is Neo?</h2>
+            <p class="intro text-center,align=justify">Neo is a novel synthesis framework based on
+the idea of conflict-driven learning. Given a spurious partial
+program that violates the specification, the idea is to infer
+a lemma that can be used to prevent similar mistakes in
+the future. Our synthesis algorithm infers these lemmas by
+identifying DSL constructs that are equivalent modulo conflict,
+meaning that replacing one component with the other
+results in an another infeasible program.</p>
+            <div class="row,align=center">
+                <div class="item col-md-12 col-sm-12 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-line-chart"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Scalable</h3>
+                        <p>Neo outperforms state-of-the-art synthesizers in PL (i.e., Morpheus) and ML (i.e., DeepCoder).</p>
+                    </div><!--//content-->
+                </div><!--//item-->
+            </div>
+            <div class="row,align=center">
+                <div class="item col-md-12 col-sm-12 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-clock-o"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Fast</h3>
+                        <p>Neo can synthesize most tasks in a few seconds.</p>
+                    </div><!--//content-->
+                </div><!--//item-->
+            </div>
+            <div class="row,align=center">
+                <div class="item col-md-12 col-sm-12 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Generic</h3>
+                        <p>Neo can solve problems from different domains and supports arbitrary DSLs.</p>
+                    </div><!--//content-->
+                </div><!--//item-->
+            </div>
+            <div class="row,align=center">
+                <div class="item col-md-12 col-sm-12 col-xs-12">
+                    <div class="icon-holder">
+                        <i class="fa fa-archive"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Paper</h3>
+                        <p>For technical details see our PLDI'18 publication: <b><a href="https://arxiv.org/pdf/1711.08029v1.pdf">Program Synthesis using Conflict-Driven Learning.</a></b> Yu Feng, Ruben Martins, Osbert Bastani, and Isil Dillig.
+                    </div><!--//content-->
+                </div><!--//item-->
+            </div>      
+        </div><!--//container-->
+    </section><!--//about-->
+
+    
+    <!-- ******FEATURES****** --> 
+<!--     <section id="features" class="features section">
+        <div class="container text-center">
+            <h2 class="title">Features</h2>
+            <ul class="feature-list list-unstyled">
+                <li><i class="fa fa-check"></i> Fully responsive</li>
+                <li><i class="fa fa-check"></i> HTML5 + CSS3</li>
+                <li><i class="fa fa-check"></i> Built on <a href="http://getbootstrap.com/" target="_blank">Bootstrap 3.3</a></li>
+                <li><i class="fa fa-check"></i> 400+ FontAwesome icons</li>
+                <li><i class="fa fa-check"></i> 4 colour schemes</li>
+                <li><i class="fa fa-check"></i> LESS files included</li>
+                <li><i class="fa fa-check"></i> Compatible with all modern browsers</li>
+            </ul>
+        </div>
+    </section> -->
+    
+    <!-- ******DOCS****** --> 
+
+
+        
+    <!-- ******CONTACT****** --> 
+    <section id="contact" class="contact section has-pattern">
+        <div class="container">
+            <div class="contact-inner">
+                <h2 class="title  text-center">Contact</h2>
+                <div class="info"> 
+                <center>
+                <p>Neo was developed by the UToPiA research group lead by <a href="https://www.cs.utexas.edu/~isil/">Isil Dillig</a> at UT Austin.<p>
+                <p>Neo is maintained by <a href="https://sat-group.github.io/ruben/">Ruben Martins</a> at CMU and <a href="https://www.cs.utexas.edu/~yufeng/">Yu Feng</a> at UT Austin.</p>
+                </center>
+                </div>
+                <div class="info text-center">
+                    <ul class="social-icons list-inline">
+                        <li><a href="https://github.com/utopia-group/sypet"><i class="fa fa-github"></i></a></li>   
+                        <li class="last"><a href="mailto:rubenm@cs.cmu.edu"><i class="fa fa-envelope"></i></a></li>              
+                    </ul>
+                </div>
+            </div><!--//contact-inner-->
+        </div><!--//container-->
+    </section><!--//contact-->  
+
+    <!-- ******FOOTER****** --> 
+    <footer class="footer">
+        <div class="container text-center">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">Designed with <i class="fa fa-heart"></i> by <a href="https://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+        </div><!--//container-->
+    </footer><!--//footer-->
+     
+    <!-- Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-1.11.3.min.js"></script>   
+    <script type="text/javascript" src="assets/plugins/jquery.easing.1.3.js"></script>   
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>     
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script> 
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/js/main.js"></script>       
+</body>
+</html> 
+
